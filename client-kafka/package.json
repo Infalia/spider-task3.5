@@ -1,0 +1,17 @@
+{
+  "name": "client-kafka",
+  "version": "1.0.0",
+  "description": "Kafka client",
+  "author": "Infalia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "kafkajs": "^1.15.0",
+    "websocket": "^1.0.33"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

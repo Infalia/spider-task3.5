@@ -1,0 +1,16 @@
+FROM node:lts-alpine
+
+# make the 'client-kafka' folder the current working directory
+WORKDIR /client-kafka
+
+# copy both 'package.json' and 'package-lock.json' (if available)
+COPY client-kafka/package*.json ./
+
+# install project dependencies
+RUN npm install
+
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY client-kafka/. .
+
+EXPOSE 3000
+# CMD [ "npm", "start" ]
