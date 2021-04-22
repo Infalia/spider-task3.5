@@ -37,13 +37,13 @@ The goal of this project is to implement centralized logging mechanism for sprin
 
 - Open a terminal and inside `elkk` root folder run
 
-```
+```text
 docker-compose up -d
 ```
 
 - Wait a until all containers are Up (healthy). You can check their status by running
 
-```
+```text
 docker-compose ps
 ```
 
