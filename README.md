@@ -96,7 +96,7 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 ---
 
 **Kafka Manager**
-`Kafka Manager` can be accessed at (http://localhost:9000)
+`Kafka Manager` can be accessed at [http://localhost:9000](http://localhost:9000)
 
 - First, you must create a new cluster. Click on `Cluster` (dropdown button on the header) and then on `Add Cluster`
 - Type the name of your cluster in `Cluster Name` field, for example: `MyZooCluster`
@@ -150,10 +150,10 @@ docker-compose down -v
 ---
 
 - **Kafka Topics UI**
-  `Kafka Topics UI` can be accessed at (http://localhost:8085)
+  `Kafka Topics UI` can be accessed at [http://localhost:8085](http://localhost:8085)
 
 - **Zipkin**
-  `Zipkin` can be accessed at (http://localhost:9411)
+  `Zipkin` can be accessed at [http://localhost:9411](http://localhost:9411)
 
 - **Elasticsearch REST API**
   Check ES is up and running
