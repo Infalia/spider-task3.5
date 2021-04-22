@@ -13,7 +13,7 @@ The goal of this project is to implement centralized logging mechanism for sprin
 
 ## Project Architecture
 
-![enter image description here](./images/full_ecosystem.png)
+![enter image description here](./images/full_ecosystem.jpeg)
 
 ## Applications
 
@@ -21,7 +21,7 @@ The goal of this project is to implement centralized logging mechanism for sprin
 
 `Spring Boot` Web Java application that generates logs and pushes logs events to `log_stream` topic in `Kafka` using `Filebeat`.
 
-![enter image description here](https://raw.githubusercontent.com/AbhiJD9602/elkk/master/images/diagram.png)
+![enter image description here](./images/diagram.jpeg)
 
 ## Start Environment
 
