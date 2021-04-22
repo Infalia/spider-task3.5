@@ -137,6 +137,8 @@ Visualizations are based on `Vue-ECharts`, a Vue.js component for `Apache EChart
 
 ## Shutdown
 
+---
+
 - Stop applications
   - If they were started with `Gradle`, go to the terminals where they are running and press `Ctrl+C`
   - If they were started as a Docker container, run the script below
