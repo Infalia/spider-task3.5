@@ -131,6 +131,10 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 - The `Kafka consumer` is running on the backend and on port 3000.
 - The `Vue web application` that shows visualizations based on `Kafka consumer` data can be accessed at [http://localhost:8080](http://localhost:8080).
 
+Visualizations are based on `Vue-ECharts`, a Vue.js component for `Apache ECharts`. More details [here](https://github.com/ecomfe/vue-echarts).
+
+![enter image description here](./images/vue-app.jpg)
+
 ## Shutdown
 
 - Stop applications
