@@ -66,7 +66,7 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 
 ---
 
-### Build Application's Docker Image
+#### Build Application's Docker Image
 
 - In a terminal, make sure you are in `elkk` root folder
 - In order to build the applications docker images, run the following script
@@ -75,16 +75,14 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 ./build-apps.sh
 ```
 
-### Application's Environment Variables
-
-- **application**
+#### Application's Environment Variables
 
 | Environment Variable | Description                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------ |
 | `ZIPKIN_HOST`        | Specify host of the `Zipkin` distributed tracing system to use (default `localhost`) |
 | `ZIPKIN_PORT`        | Specify port of the `Zipkin` distributed tracing system to use (default `9411`)      |
 
-### Start Application's Docker Container
+#### Start Application's Docker Container
 
 - In a terminal, make sure you are inside `elkk` root folder
 - Run following script
@@ -93,11 +91,24 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 ./start-apps.sh
 ```
 
+## Configuring Kafka
+
+---
+
+**Kafka Manager**
+`Kafka Manager` can be accessed at (http://localhost:9000)
+
+- First, you must create a new cluster. Click on `Cluster` (dropdown button on the header) and then on `Add Cluster`
+- Type the name of your cluster in `Cluster Name` field, for example: `MyZooCluster`
+- Type `zookeeper:2181` in `Cluster Zookeeper Hosts` field
+- Enable checkbox `Poll consumer information (Not recommended for large # of consumers if ZK is used for offsets tracking on older Kafka versions)`
+- Click on `Save` button at the bottom of the page.
+
 ## Configuring Kibana
 
 ---
 
-- You can then access kibana in your web browser: http://localhost:5601.
+- You can then access kibana in your web browser: (http://localhost:5601).
 - The first thing you have to do is to configure the ElasticSearch indices that can be displayed in Kibana.
 
 ![enter image description here](./images/kibana_One.png)
@@ -111,14 +122,12 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 
 ![enter image description here](./images/kibana_Three.png)
 
-## Applications URLs
+## Kafka consumer
 
 ---
 
-| Application      | URL                    |
-| ---------------- | ---------------------- |
-| application      | http://localhost:9082/ |
-| kibana dashboard | http://localhost:5601  |
+- The `Kafka consumer` is running on the backend and on port 3000.
+- The `Vue web application` that shows visualizations based on `Kafka consumer` data can be accessed at (http://localhost:8080).
 
 ## Shutdown
 
@@ -141,21 +150,10 @@ docker-compose down -v
 ---
 
 - **Kafka Topics UI**
-  `Kafka Topics UI` can be accessed at http://localhost:8085
+  `Kafka Topics UI` can be accessed at (http://localhost:8085)
 
 - **Zipkin**
-  `Zipkin` can be accessed at http://localhost:9411
-
-- **Kafka Manager**
-  `Kafka Manager` can be accessed at http://localhost:9000
-
-  **Configuration**
-
-  - First, you must create a new cluster. Click on `Cluster` (dropdown button on the header) and then on `Add Cluster`
-  - Type the name of your cluster in `Cluster Name` field, for example: `MyZooCluster`
-  - Type `zookeeper:2181` in `Cluster Zookeeper Hosts` field
-  - Enable checkbox `Poll consumer information (Not recommended for large # of consumers if ZK is used for offsets tracking on older Kafka versions)`
-  - Click on `Save` button at the bottom of the page.
+  `Zipkin` can be accessed at (http://localhost:9411)
 
 - **Elasticsearch REST API**
   Check ES is up and running
