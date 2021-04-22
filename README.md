@@ -35,6 +35,9 @@ The goal of this project is to implement centralized logging mechanism for sprin
 
 ---
 
+> **Important:**
+> The `vm_max_map_count` kernel setting needs to be set to at least `262144` for production use. More details [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-prod-prerequisites).
+
 - Open a terminal and inside `elkk` root folder run
 
 ```text
@@ -55,7 +58,7 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 
 - _application_
 
-```
+```text
 ./gradlew :application:bootRun
 ```
 
@@ -68,7 +71,7 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 - In a terminal, make sure you are in `elkk` root folder
 - In order to build the applications docker images, run the following script
 
-```
+```text
 ./build-apps.sh
 ```
 
@@ -86,7 +89,7 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 - In a terminal, make sure you are inside `elkk` root folder
 - Run following script
 
-```
+```text
 ./start-apps.sh
 ```
 
@@ -123,13 +126,13 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
   - If they were started with `Gradle`, go to the terminals where they are running and press `Ctrl+C`
   - If they were started as a Docker container, run the script below
 
-```
+```text
 ./stop-apps.sh
 ```
 
 - Stop and remove docker-compose containers, networks and volumes
 
-```
+```text
 docker-compose down -v
 ```
 
@@ -145,31 +148,36 @@ docker-compose down -v
 
 - **Kafka Manager**
   `Kafka Manager` can be accessed at http://localhost:9000
-  _ **Configuration**
-  _ First, you must create a new cluster. Click on `Cluster` (dropdown button on the header) and then on `Add Cluster`
-  _ Type the name of your cluster in `Cluster Name` field, for example: `MyZooCluster`
-  _ Type `zookeeper:2181` in `Cluster Zookeeper Hosts` field
-  _ Enable checkbox `Poll consumer information (Not recommended for large # of consumers if ZK is used for offsets tracking on older Kafka versions)`
-  _ Click on `Save` button at the bottom of the page.
 
-      * Elasticsearch REST API*
-      	Check ES is up and running
+  **Configuration**
 
-      	```
-      	curl http://localhost:9200
-        ```
+  - First, you must create a new cluster. Click on `Cluster` (dropdown button on the header) and then on `Add Cluster`
+  - Type the name of your cluster in `Cluster Name` field, for example: `MyZooCluster`
+  - Type `zookeeper:2181` in `Cluster Zookeeper Hosts` field
+  - Enable checkbox `Poll consumer information (Not recommended for large # of consumers if ZK is used for offsets tracking on older Kafka versions)`
+  - Click on `Save` button at the bottom of the page.
 
-      	Check indexes in ES
-      	```
-      	curl http://localhost:9200/_cat/indices?v
-      	```
+- **Elasticsearch REST API**
+  Check ES is up and running
 
-      	Check _news_ index mapping
-      	```
-      	curl http://localhost:9200/news/_mapping
-      	```
+  ```
+    	curl http://localhost:9200
+  ```
 
-      	Simple search
-      	```
-      	curl http://localhost:9200/news/news/_search
-      	```
+  Check indexes in ES
+
+  ```
+    	curl http://localhost:9200/_cat/indices?v
+  ```
+
+  Check _news_ index mapping
+
+  ```
+    	curl http://localhost:9200/news/_mapping
+  ```
+
+  Simple search
+
+  ```
+    	curl http://localhost:9200/news/news/_search
+  ```
