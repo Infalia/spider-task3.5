@@ -1,8 +1,12 @@
 # ELKK Stack
 
+---
+
 The goal of this project is to implement centralized logging mechanism for spring boot applications.
 
 ## Technologies used
+
+---
 
 - Elastic Search
 - Logstash
@@ -13,9 +17,13 @@ The goal of this project is to implement centralized logging mechanism for sprin
 
 ## Project Architecture
 
+---
+
 ![enter image description here](./images/full_ecosystem.jpeg)
 
 ## Applications
+
+---
 
 - **application**
 
@@ -24,6 +32,8 @@ The goal of this project is to implement centralized logging mechanism for sprin
 ![enter image description here](./images/diagram.jpeg)
 
 ## Start Environment
+
+---
 
 - Open a terminal and inside `elkk` root folder run
 
@@ -39,6 +49,8 @@ docker-compose ps
 
 ## Running Applications with Gradle
 
+---
+
 Inside `elkk` root folder, run the following `Gradle` commands in different terminals
 
 - _application_
@@ -48,6 +60,8 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 ```
 
 ## Running Applications as Docker containers
+
+---
 
 ### Build Application's Docker Image
 
@@ -78,6 +92,8 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 
 ## Configuring Kibana
 
+---
+
 - You can then access kibana in your web browser: http://localhost:5601.
 - The first thing you have to do is to configure the ElasticSearch indices that can be displayed in Kibana.
 
@@ -93,6 +109,8 @@ Inside `elkk` root folder, run the following `Gradle` commands in different term
 ![enter image description here](./images/kibana_Three.png)
 
 ## Applications URLs
+
+---
 
 | Application      | URL                    |
 | ---------------- | ---------------------- |
@@ -116,6 +134,8 @@ docker-compose down -v
 ```
 
 ## Useful links
+
+---
 
 - **Kafka Topics UI**
   `Kafka Topics UI` can be accessed at http://localhost:8085
