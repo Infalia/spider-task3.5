@@ -1,17 +1,19 @@
+//require('dotenv').config();
 const WebSocketServer = require('websocket').server;
 const { Kafka, logLevel } = require('kafkajs');
 const http = require('http');
-const ip = require('ip');
+const {
+  KAFKA_HOST,
+  KAFKA_TOPIC
+} = process.env;
 
 
+const host = `${KAFKA_HOST}`; // process.env.HOST_IP || ip.address()
 
-
-const host = process.env.HOST_IP || ip.address()
-console.log(host);
 const kafka = new Kafka({
     logLevel: logLevel.INFO,
-    brokers: [`${host}:29092`],
-    clientId: 'example-consumer'
+    brokers: [host],
+    clientId: 'kafkajs-consumer2'
 });
 
 
@@ -23,8 +25,8 @@ const server = http.createServer(function(request, response) {
     response.end();
 });
 
-server.listen(3000, function() {
-    console.log('Listening on port: 3000');
+server.listen(3002, function() {
+    console.log('Listening on port: 3002');
 });
     
 webSocketServer = new WebSocketServer({
@@ -43,7 +45,7 @@ webSocketServer.on('request', function(request) {
         return;
     }
     
-    const connection = request.accept('echo-protocol', request.origin);
+    const connection = request.accept('echo-protocol2', request.origin);
     console.log('Connection accepted: ' + request.origin);
 
     connection.on('message', function(message) {
@@ -55,8 +57,8 @@ webSocketServer.on('request', function(request) {
 
 
 
-    const topic = 'log_stream';
-    const consumer = kafka.consumer({ groupId: 'test-group' });
+    const topic = `${KAFKA_TOPIC}`;
+    const consumer = kafka.consumer({ groupId: 'test-group2' });
 
     const run = async () => {
         await consumer.connect();
@@ -74,7 +76,7 @@ webSocketServer.on('request', function(request) {
         });
     }
     
-    run().catch(e => console.error(`[example/consumer] ${e.message}`, e))
+    run().catch(e => console.error(`[example/consumer2] ${e.message}`, e))
 
 
 

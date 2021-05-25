@@ -189,19 +189,49 @@ services:
     ports:
       - "8080:8080"
 
-  client-kafka:
-    container_name: client-kafka
+  kafka-consumer:
+    container_name: kafka-consumer
     build:
       context: ./
-      dockerfile: ./client-kafka/dockerfile
+      dockerfile: ./kafka-consumer/dockerfile
     volumes:
-      - "./client-kafka:/client-kafka"
-      - "/client-kafka/node_modules"
+      - "./kafka-consumer:/kafka-consumer"
+      - "/kafka-consumer/node_modules"
     ports:
       - "3000:3000"
     environment:
       KAFKA_HOST: kafka:9092
       KAFKA_TOPIC: log_stream
+    command: npm start
+
+  kafka-consumer2:
+    container_name: kafka-consumer2
+    build:
+      context: ./
+      dockerfile: ./kafka-consumer2/dockerfile
+    volumes:
+      - "./kafka-consumer2:/kafka-consumer2"
+      - "/kafka-consumer2/node_modules"
+    ports:
+      - "3002:3002"
+    environment:
+      KAFKA_HOST: kafka:9092
+      KAFKA_TOPIC: topic-test
+    command: npm start
+
+  kafka-producer:
+    container_name: kafka-producer
+    build:
+      context: ./
+      dockerfile: ./kafka-producer/dockerfile
+    volumes:
+      - "./kafka-producer:/kafka-producer"
+      - "/kafka-producer/node_modules"
+    ports:
+      - "3001:3001"
+    environment:
+      KAFKA_HOST: kafka:9092
+      KAFKA_TOPIC: topic-test
     command: npm start
 
 volumes:

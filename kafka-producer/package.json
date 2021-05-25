@@ -1,7 +1,7 @@
 {
-  "name": "client-kafka",
+  "name": "kafka-producer",
   "version": "1.0.0",
-  "description": "Kafka client",
+  "description": "Kafka producer",
   "author": "Infalia",
   "main": "server.js",
   "scripts": {
@@ -9,9 +9,6 @@
   },
   "dependencies": {
     "kafkajs": "^1.15.0",
-    "websocket": "^1.0.33"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
+    "express": "^4.17.1"
   }
 }

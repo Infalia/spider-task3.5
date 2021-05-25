@@ -1,7 +1,36 @@
 <template>
+    <button class="btn btn-primary" v-on:click="sendMsg()">Test button</button>
     <v-chart class="chartBar" :option="optionBar" />
     <!-- <v-chart class="chartPie" :option="optionPie" /> -->
 </template>
+
+<style scoped>
+.btn {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+</style>
 
 <script>
 import { use } from "echarts/core";
@@ -15,6 +44,7 @@ import {
 } from "echarts/components";
 import { default as VChart, THEME_KEY } from "vue-echarts";
 import { ref, defineComponent } from "vue";
+import axios from "axios";
 
 use([
     CanvasRenderer,
@@ -111,10 +141,20 @@ export default defineComponent({
             // }, 4000);
             // this.optionBar.xAxis.data.push('Test');
             // console.log(this.optionBar.xAxis.data);
+        },
+        sendMsg () {
+            const article = { title: "Vue POST Request Example" };
+            
+            axios.post("http://localhost:3001/api/sendMsg", article)
+                .then(response => response.data)
+                .catch(error => {
+                    this.errorMessage = error.message;
+                    console.error("There was an error!", error);
+                });
         }
     },
     created() {
-        this.webSocketInvoke()
+        // this.webSocketInvoke()
     },
     mounted() {
         this.webSocketInvoke()
