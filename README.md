@@ -8,6 +8,10 @@ SPIDER components that need to send their data to the visualisation dashboard ne
 
 The "final" vue-based sample dashboard includes a "STREAM" button that emulates the data streaming from any SPIDER component and its near real time visualisation in the dashboard.
 
+## TL;DR
+
+Just [check out a quick video](https://www.youtube.com/watch?v=UJCPYIxsWnc) of the overall process
+
 ## Technologies used
 
 ---
