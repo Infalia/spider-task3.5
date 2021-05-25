@@ -1,21 +1,25 @@
-> The ELKK stack was cloned from [this](https://github.com/AbhiJD9602/elkk) repo.
-
-# ELKK Stack
+# T3.5 Data collection and visualisation toolkit
 
 ---
 
-The goal of this project is to implement centralized logging mechanism for spring boot applications.
+This repository contains a working dockerised setup for Task 3.5 of SPIDER H2020 project concerning the data collection and visualisation toolkit. The goal of this repository is to demonstrate a centralised logging collection mechanism based on spring boot applications.
+
+SPIDER components that need to send their data to the visualisation dashboard need to provide their kafka topics and the payload schema.
+
+The "final" vue-based sample dashboard includes a "STREAM" button that emulates the data streaming from any SPIDER component and its near real time visualisation in the dashboard.
 
 ## Technologies used
 
 ---
 
-- Elastic Search
+- ElasticSearch
 - Logstash
 - Kibana
 - Kafka
 - Filebeat
 - Spring Boot
+
+> Initially this stack was based on [this](https://github.com/AbhiJD9602/elkk) repo and was customised to SPIDER's requirements
 
 ## Project Architecture
 
